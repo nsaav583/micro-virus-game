@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=3 uid="uid://d5nriixj08hh"]
+
+[ext_resource type="Texture2D" uid="uid://ixvlhimbtrk7" path="res://assets/sprites/down.png" id="1_1axa6"]
+[ext_resource type="Script" uid="uid://nbq88w207gf5" path="res://scenes/player/scripts/nanobot.gd" id="1_hqlmd"]
+[ext_resource type="Texture2D" uid="uid://sb74jg06hjjl" path="res://assets/sprites/down_left.png" id="2_hqlmd"]
+[ext_resource type="Texture2D" uid="uid://ep1w30e6c22o" path="res://assets/sprites/down_right.png" id="3_f5bsc"]
+[ext_resource type="Texture2D" uid="uid://c6g04q5d27f63" path="res://assets/sprites/left.png" id="4_sfkov"]
+[ext_resource type="Texture2D" uid="uid://c5wpv04f3okmj" path="res://assets/sprites/right.png" id="5_17ubg"]
+[ext_resource type="Texture2D" uid="uid://bar1rwcr6yclc" path="res://assets/sprites/up.png" id="6_qeiq0"]
+[ext_resource type="Texture2D" uid="uid://dpiumojorefvm" path="res://assets/sprites/up_left.png" id="7_fp6x6"]
+[ext_resource type="Texture2D" uid="uid://516pjwuhuchj" path="res://assets/sprites/up_right.png" id="8_kv1t3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_53ndx"]
+radius = 60.133186
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqlmd"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1axa6")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hqlmd")
+}],
+"loop": true,
+"name": &"down_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_f5bsc")
+}],
+"loop": true,
+"name": &"down_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sfkov")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_17ubg")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qeiq0")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_fp6x6")
+}],
+"loop": true,
+"name": &"up_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_kv1t3")
+}],
+"loop": true,
+"name": &"up_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hqlmd"]
+radius = 58.549126
+
+[node name="Nanobot" type="CharacterBody2D"]
+collision_mask = 8
+script = ExtResource("1_hqlmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -2)
+shape = SubResource("CircleShape2D_53ndx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.0945638, 0.12207029)
+sprite_frames = SubResource("SpriteFrames_hqlmd")
+animation = &"right"
+
+[node name="GunPosition" type="Marker2D" parent="."]
+position = Vector2(9, 3)
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["hurtbox"]]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_hqlmd")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://daggfg2jnp2e4"]
+
+[ext_resource type="Script" uid="uid://dq7tro5hpeeiw" path="res://scenes/enemy/scripts/Virus.gd" id="1_aiu30"]
+[ext_resource type="Texture2D" uid="uid://dpot2f54vn5gd" path="res://assets/sprites/Virus1.png" id="2_8m3f3"]
+[ext_resource type="Script" uid="uid://bryy5l8h3uvow" path="res://scenes/enemy/scripts/Virus_sprite.gd" id="3_8m3f3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6l0n6"]
+radius = 61.008198
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aiu30"]
+radius = 57.14018
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8m3f3"]
+radius = 58.034473
+
+[node name="Virus" type="CharacterBody2D" groups=["enemy"]]
+collision_mask = 0
+script = ExtResource("1_aiu30")
+
+[node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_6l0n6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.1757813, 1.0976563)
+texture = ExtResource("2_8m3f3")
+region_rect = Rect2(0, 0, 128, 128)
+script = ExtResource("3_8m3f3")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy_hitbox"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_aiu30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8m3f3")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

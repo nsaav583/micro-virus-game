@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb4vhrrrrgtw0"]
+
+[ext_resource type="Script" uid="uid://cvbooo2swpt5i" path="res://scenes/player/scripts/bullet.gd" id="1_be0i8"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_be0i8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sttck"]
+radius = 9.219544
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_be0i8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(16, 16)
+texture = SubResource("CanvasTexture_be0i8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sttck")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

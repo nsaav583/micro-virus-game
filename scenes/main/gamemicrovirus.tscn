@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://dc2mjbobtx5jv"]
+
+[ext_resource type="Script" uid="uid://cv7fj3ydj1row" path="res://scenes/main/gamemicrovirus.gd" id="1_3lmlt"]
+[ext_resource type="Texture2D" uid="uid://dhd5pana3ufys" path="res://assets/backgrounds/background.png" id="2_e41or"]
+[ext_resource type="Script" uid="uid://b4t20nfjquvdi" path="res://assets/backgrounds/background.gd" id="3_liotp"]
+[ext_resource type="PackedScene" uid="uid://daggfg2jnp2e4" path="res://scenes/enemy/Virus.tscn" id="4_a16gn"]
+[ext_resource type="PackedScene" uid="uid://d5nriixj08hh" path="res://scenes/player/nanobot.tscn" id="5_e41or"]
+[ext_resource type="Script" uid="uid://b623wi7iw4jdj" path="res://scenes/enemy/scripts/HordeSpawner.gd" id="6_liotp"]
+[ext_resource type="Script" uid="uid://cqh6kb3k7ckb3" path="res://scenes/main/camera_2d.gd" id="7_a16gn"]
+[ext_resource type="PackedScene" uid="uid://c2yr8tmsidu8v" path="res://scenes/main/HUD.tscn" id="8_kw26g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_liotp"]
+size = Vector2(1848.998, 4.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a16gn"]
+size = Vector2(1848, 4.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw26g"]
+size = Vector2(7, 1035)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l1l2"]
+size = Vector2(7, 1035)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3lmlt")
+
+[node name="Backgroud" type="Sprite2D" parent="."]
+z_index = -10
+texture_repeat = 1
+texture = ExtResource("2_e41or")
+script = ExtResource("3_liotp")
+
+[node name="Virus" parent="." instance=ExtResource("4_a16gn")]
+position = Vector2(682, -381)
+
+[node name="Nanobot" parent="." instance=ExtResource("5_e41or")]
+position = Vector2(-666, 349)
+
+[node name="HordeSpawner" type="Node" parent="."]
+script = ExtResource("6_liotp")
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="WallTop" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(6, -511)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/WallTop"]
+position = Vector2(-71, -5)
+shape = SubResource("RectangleShape2D_liotp")
+
+[node name="WallBottom" type="StaticBody2D" parent="Boundaries"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/WallBottom"]
+position = Vector2(6, 511.25)
+shape = SubResource("RectangleShape2D_a16gn")
+
+[node name="WallLeft" type="StaticBody2D" parent="Boundaries"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/WallLeft"]
+position = Vector2(-772, 0)
+shape = SubResource("RectangleShape2D_kw26g")
+
+[node name="WallRight" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(0, -2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/WallRight"]
+position = Vector2(772, 0)
+shape = SubResource("RectangleShape2D_6l1l2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-3, 0)
+limit_enabled = false
+limit_left = -810
+limit_top = -567
+limit_right = 775
+limit_bottom = 515
+limit_smoothed = true
+rotation_smoothing_enabled = true
+script = ExtResource("7_a16gn")
+
+[node name="HUD" parent="." instance=ExtResource("8_kw26g")]
