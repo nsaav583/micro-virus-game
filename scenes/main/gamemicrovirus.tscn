@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dc2mjbobtx5jv"]
 
 [ext_resource type="Script" uid="uid://cv7fj3ydj1row" path="res://scenes/main/gamemicrovirus.gd" id="1_3lmlt"]
-[ext_resource type="Texture2D" uid="uid://dhd5pana3ufys" path="res://assets/backgrounds/background.png" id="2_e41or"]
+[ext_resource type="Texture2D" uid="uid://df6cs1qbfb4v" path="res://assets/backgrounds/background.png" id="2_e41or"]
 [ext_resource type="Script" uid="uid://b4t20nfjquvdi" path="res://assets/backgrounds/background.gd" id="3_liotp"]
 [ext_resource type="PackedScene" uid="uid://daggfg2jnp2e4" path="res://scenes/enemy/Virus.tscn" id="4_a16gn"]
 [ext_resource type="PackedScene" uid="uid://d5nriixj08hh" path="res://scenes/player/nanobot.tscn" id="5_e41or"]
@@ -24,7 +24,7 @@ size = Vector2(7, 1035)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_3lmlt")
 
-[node name="Backgroud" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 z_index = -10
 texture_repeat = 1
 texture = ExtResource("2_e41or")

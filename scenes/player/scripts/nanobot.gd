@@ -77,4 +77,7 @@ func take_damage(amount: int):
 
 func die():
 	print("GAME OVER")
-	queue_free()
+	call_deferred("_go_to_game_over")
+
+func _go_to_game_over():
+	get_tree().change_scene_to_file("res://scenes/main/GameOver.tscn")
