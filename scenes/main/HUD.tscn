@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2yr8tmsidu8v"]
+[gd_scene load_steps=3 format=3 uid="uid://c2yr8tmsidu8v"]
 
 [ext_resource type="Script" uid="uid://bnxbgffnrubuy" path="res://scenes/main/hud.gd" id="1_gwv7x"]
+[ext_resource type="FontFile" uid="uid://dd6eptaayoqpa" path="res://assets/fonts/PixeloidMono.otf" id="2_rycl0"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_gwv7x")
@@ -14,8 +15,10 @@ layout_mode = 2
 
 [node name="LabelWave" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "1"
+theme_override_fonts/font = ExtResource("2_rycl0")
+text = "Oleada: 1"
 
 [node name="LabelLives" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "3"
+theme_override_fonts/font = ExtResource("2_rycl0")
+text = "Vidas: 3"

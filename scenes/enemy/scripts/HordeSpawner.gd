@@ -1,18 +1,18 @@
 extends Node
 
 @export var virus_scene: PackedScene = preload("res://scenes/enemy/Virus.tscn")
-
 @export var enemies_per_wave: int = 3
 @export var wave_increase: int = 2
 @export var spawn_delay: float = 0.4
 @export var max_enemies_alive: int = 15
-
 
 var current_wave: int = 1
 var enemies_spawned: int = 0
 var enemies_alive: int = 0
 var can_spawn: bool = false
 var spawning: bool = false
+
+signal wave_started(wave_number: int)
 
 func _ready():
 	start_wave()
@@ -23,6 +23,7 @@ func start_wave():
 	enemies_alive = 0
 	can_spawn = true
 	spawning = true
+	emit_signal("wave_started", current_wave)
 
 func _process(delta):
 	if spawning and can_spawn:
