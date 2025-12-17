@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyio8iw286y1j"]
+
+[ext_resource type="AudioStream" uid="uid://dwh3o3e1jkh6t" path="res://assets/Audio/1 - Astro Reverie.ogg" id="1_1a72i"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_1a72i")
+volume_db = -0.8
+autoplay = true

@@ -8,7 +8,12 @@ var shoot_timer: float = 0.0
 
 @export var speed: float = 260.0
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var hud = get_tree().current_scene.get_node_or_null("HUD")
 var last_direction: Vector2 = Vector2.DOWN
+
+func _ready():
+	if hud:
+		hud.call_deferred("update_lives", health)
 
 func _physics_process(delta):
 	# POSICIÓN DEL PUNTO DE DISPARO (apunta delante del jugador)
@@ -66,12 +71,17 @@ func _update_animation(dir: Vector2):
 	elif dir.x > 0 and dir.y > 0:
 		anim.play("down_right")
 
-@export var health: int = 3
+@export var health: int = 10
+
 func take_damage(amount: int):
 	health -= amount
-	var hud = get_tree().current_scene.get_node("HUD")
-	hud.update_lives(health)
 	print("Nanobot recibió daño. Vida:", health)
+
+	if hud:
+		hud.update_lives(health)
+	else:
+		print("❌ HUD no encontrado")
+
 	if health <= 0:
 		die()
 
@@ -80,4 +90,6 @@ func die():
 	call_deferred("_go_to_game_over")
 
 func _go_to_game_over():
-	get_tree().change_scene_to_file("res://scenes/main/GameOver.tscn")
+	var tree := Engine.get_main_loop()
+	if tree:
+		tree.change_scene_to_file("res://scenes/main/GameOver.tscn")

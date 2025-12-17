@@ -21,11 +21,18 @@ func take_damage(amount: int):
 		die()
 
 func die():
+	var sound = $DeathSound
+	remove_child(sound)
+	get_tree().current_scene.add_child(sound)
+	sound.global_position = global_position
+	sound.play()
 	queue_free()
+
 
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("hurtbox"):
 		var player_hit = area.get_parent()
 		if player_hit.has_method("take_damage"):
+			queue_free()
 			player_hit.take_damage(1)

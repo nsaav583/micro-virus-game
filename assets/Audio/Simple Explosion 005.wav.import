@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cv7x8h50t1nb2"
+path="res://.godot/imported/Simple Explosion 005.wav-73e4a2bad711521800a730cac6016ebc.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Simple Explosion 005.wav"
+dest_files=["res://.godot/imported/Simple Explosion 005.wav-73e4a2bad711521800a730cac6016ebc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
