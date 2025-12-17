@@ -73,3 +73,27 @@ theme_override_styles/background = SubResource("StyleBoxFlat_6hndo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_islwi")
 max_value = 10.0
 value = 10.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HUDPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelIns" type="Label" parent="MarginContainer/HUDPanel/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rycl0")
+text = "Objetivo:
+- Debes eliminar a tantos virus 
+puedas, salva el organismo!
+Tips:
+- Usa tu velocidad de moviemiento 
+para alejarte de los virus y disparar, 
+¡eres más rapido!
+
+Controles:
+W : Arriba
+S : Abajo
+D : Derecha
+A : Izquierda
+Click / Espacio : Disparar
+
+--Desarrollado por Nicolas Saavedra--
+           Para Inacap"

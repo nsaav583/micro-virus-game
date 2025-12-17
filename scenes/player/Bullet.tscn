@@ -1,8 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cb4vhrrrrgtw0"]
 
 [ext_resource type="Script" uid="uid://cvbooo2swpt5i" path="res://scenes/player/scripts/bullet.gd" id="1_be0i8"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_be0i8"]
+[ext_resource type="Texture2D" uid="uid://cm2qugnj26nuk" path="res://assets/sprites/bullet_nanobot.png" id="2_sttck"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sttck"]
 radius = 9.219544
@@ -13,8 +12,8 @@ collision_mask = 2
 script = ExtResource("1_be0i8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(16, 16)
-texture = SubResource("CanvasTexture_be0i8")
+scale = Vector2(0.023518885, 0.022216784)
+texture = ExtResource("2_sttck")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sttck")

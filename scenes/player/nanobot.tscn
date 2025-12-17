@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://516pjwuhuchj" path="res://assets/sprites/up_right.png" id="8_kv1t3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_53ndx"]
-radius = 60.133186
+radius = 37.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqlmd"]
 animations = [{
@@ -103,11 +103,13 @@ sprite_frames = SubResource("SpriteFrames_hqlmd")
 animation = &"right"
 
 [node name="GunPosition" type="Marker2D" parent="."]
+visible = false
 position = Vector2(9, 3)
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["hurtbox"]]
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+visible = false
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_hqlmd")
