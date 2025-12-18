@@ -28,24 +28,6 @@ El jugador controla un nanobot cuyo objetivo es sobrevivir a oleadas de virus de
 - **Plataforma objetivo:** PC (Windows)
 
 ---
-
-## 📂 Estructura del proyecto
-res://
-├── assets/
-│   ├── Audio/
-│   ├── backgrounds/
-│   ├── fonts/
-│   └── sprites/
-│
-├── scenes/
-│   ├── enemy/
-│   │   └── scripts/
-│   │
-│   ├── main/
-│   │
-│   └── player/
-│       └── scripts/
-
 1. Descargar o clonar el repositorio:
    ```bash
    git clone https://github.com/nsaav583/micro-virus-game.git
