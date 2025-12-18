@@ -47,20 +47,17 @@ func spawn_enemy():
 
 	var virus = virus_scene.instantiate()
 
-	# Posición fija de cámara (ya que tu cámara no se mueve)
 	var cam := get_viewport().get_camera_2d()
 	var cam_pos := cam.global_position
 
-	# Tamaño de la pantalla (igual que el mapa)
 	var screen_size := get_viewport().get_visible_rect().size
 
-	# Distancia desde la pantalla para spawnear enemigos
+
 	var margin := 400
 
 	var half_w := screen_size.x / 2
 	var half_h := screen_size.y / 2
 
-	# Límites visibles de la cámara (en coordenadas globales)
 	var left := cam_pos.x - half_w
 	var right := cam_pos.x + half_w
 	var top := cam_pos.y - half_h
