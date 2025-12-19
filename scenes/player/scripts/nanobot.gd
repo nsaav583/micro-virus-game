@@ -16,30 +16,27 @@ func _ready():
 		hud.call_deferred("update_lives", health)
 
 func _physics_process(delta):
-	# POSICIÓN DEL PUNTO DE DISPARO (apunta delante del jugador)
+	
 	gun_pos.position = last_direction * 10
 
-	# INPUT DE MOVIMIENTO
 	var input_vector := Vector2.ZERO
 	input_vector.y -= Input.get_action_strength("move_up")
 	input_vector.y += Input.get_action_strength("move_down")
 	input_vector.x -= Input.get_action_strength("move_left")
 	input_vector.x += Input.get_action_strength("move_right")
 
-	# SI HAY INPUT → guardar dirección
+	
 	if input_vector != Vector2.ZERO:
 		last_direction = input_vector
 		input_vector = input_vector.normalized()
 
-	# MOVIMIENTO
 	velocity = input_vector * speed
 	move_and_slide()
 
-	# ANIMACIONES
+
 	if input_vector != Vector2.ZERO:
 		_update_animation(last_direction)
 
-	# SISTEMA DE DISPARO
 	shoot_timer -= delta
 	if Input.is_action_pressed("shoot") and shoot_timer <= 0:
 		shoot()
